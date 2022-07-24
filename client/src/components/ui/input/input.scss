@@ -1,0 +1,64 @@
+@import "../../../utils/colors.scss";
+@import "../../../utils/mixins.scss";
+
+.line-input {
+   min-height: 54px;
+   position: relative;
+   width: 100%;
+   &__label {
+      font-size: 16px;
+      color: $mainColor;
+      z-index: 2;
+      position: absolute;
+      top: 50%;
+      left: 14px;
+      padding: 0px 4px;
+      transform: translate(0px, -50%);
+      transition: all 0.3s ease 0s;
+      pointer-events: none;
+   }
+   &__input {
+      z-index: 1;
+      min-height: 54px;
+      width: 100%;
+      padding: 14px 16px;
+      background-color: $bgColor;
+      border: 1px solid $mainColor;
+      border-radius: 4px;
+      color: $mainColor;
+      transition: border 0.3s ease 0s;
+      &:focus + .line-input__label {
+         font-size: 12px;
+         top: 0;
+         background-color: $bgColor;
+      }
+   }
+
+   &__error {
+      position: absolute;
+      bottom: 0;
+      transform: translate(0px, 50%);
+      font-size: 12px;
+      line-height: 14px;
+      color: $error;
+      left: 14px;
+      padding: 0px 4px;
+      background-color: $bgColor;
+      transition: all 0.3s ease 0s;
+   }
+   .line-input__dirty ~ .line-input__label {
+      font-size: 12px;
+      top: 0;
+      background-color: $bgColor;
+   }
+
+   &__error ~ .line-input__label {
+      color: $error;
+      font-size: 12px;
+      top: 0;
+      background-color: $bgColor;
+   }
+   &__error ~ &__input {
+      border: 1px solid $error;
+   }
+}

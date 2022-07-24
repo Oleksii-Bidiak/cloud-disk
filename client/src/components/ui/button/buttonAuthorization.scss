@@ -1,0 +1,31 @@
+@import "../../../utils/colors.scss";
+@import "../../../utils/mixins.scss";
+
+.button-authorization {
+   display: inline-flex;
+   /*-------------------- */
+   justify-content: center;
+   align-items: center;
+   padding: 0px 25px;
+   text-align: center;
+   transition: all 0.3s ease 0s;
+   min-height: 48px;
+   min-width: 120px;
+   font-weight: 700;
+   font-size: rem(20);
+   color: $bgColor;
+   background-color: $mainColor;
+   transition: all 0.3s ease 0s;
+   border: rem(1) solid $mainColor;
+   @media (any-hover: hover) {
+      &:hover {
+         background-color: $bgColor;
+         color: $mainColor;
+      }
+   }
+
+   &:active {
+      background-color: $bgColor;
+      color: $mainColor;
+   }
+}

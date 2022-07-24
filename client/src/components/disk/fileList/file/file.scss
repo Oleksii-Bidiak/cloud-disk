@@ -1,0 +1,105 @@
+@import "../../../../utils/colors.scss";
+@import "../../../../utils/mixins.scss";
+@import "../../../../utils/variables.scss";
+
+.file {
+   margin-bottom: 10px 0;
+   border-bottom: 1px solid $mainColor;
+   display: grid;
+   grid-template-columns: 1fr 4fr repeat(4, 1fr);
+   align-items: center;
+   column-gap: rem(10);
+   @media (any-hover: hover) {
+      &:hover {
+         transform: scale(1.01);
+      }
+   }
+   &__img {
+      justify-self: center;
+   }
+
+   &__date {
+      grid-column-start: 5;
+      justify-self: center;
+   }
+
+   &__size {
+      grid-column-start: 6;
+      justify-self: center;
+   }
+   &__btn {
+      display: none;
+   }
+   @media (any-hover: hover) {
+      &:hover &__date {
+         grid-column-start: 3;
+      }
+      &:hover &__size {
+         grid-column-start: 4;
+      }
+      &:hover &__download {
+         grid-column-start: 5;
+         display: block;
+      }
+      &:hover &__delete {
+         grid-column-start: 6;
+         display: block;
+      }
+   }
+   @media (any-hover: none) {
+      &__date {
+         grid-column-start: 3;
+      }
+      &__size {
+         grid-column-start: 4;
+      }
+      &__download {
+         grid-column-start: 5;
+         display: block;
+      }
+      &__delete {
+         grid-column-start: 6;
+         display: block;
+      }
+   }
+}
+
+.file-plate {
+   cursor: pointer;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: rem(7);
+
+   &__btns {
+      display: flex;
+      align-items: center;
+      gap: rem(10);
+   }
+
+   &__img {
+      height: 70px;
+      width: 70px;
+   }
+
+   @media (any-hover: hover) {
+      &__btns {
+         display: none;
+      }
+      &:hover {
+         &__btns {
+            display: flex;
+         }
+      }
+   }
+}
+
+.file__btn,
+.file-plate__btn {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: rem(25);
+   width: rem(25);
+
+}

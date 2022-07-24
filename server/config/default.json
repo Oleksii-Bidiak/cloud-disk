@@ -1,0 +1,7 @@
+{
+   "port": 5000,
+   "dbUrl": "mongodb+srv://Alejandro:database@cloud.osneo.mongodb.net/Cloud?retryWrites=true&w=majority",
+   "secretKey": "mern-app-cloud-disk",
+   "filePath": "D:\\Projectes\\2022\\not-commerce\\cloud-disk\\server\\files",
+   "staticPath": "D:\\Projectes\\2022\\not-commerce\\cloud-disk\\server\\static"
+}

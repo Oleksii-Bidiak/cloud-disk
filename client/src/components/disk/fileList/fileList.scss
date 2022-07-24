@@ -1,0 +1,55 @@
+@use "sass:math";
+@import "../../../utils/colors";
+@import "../../../utils/mixins.scss";
+@import "../../../utils/variables.scss";
+
+.files {
+   padding: 20px 0px 0px 0px;
+   justify-content: space-between;
+   &__wrapper {
+   }
+}
+
+.file-list {
+   line-height: math.div(16, 14);
+   &__header {
+      display: grid;
+      grid-template-columns: 1fr 4fr repeat(4, 1fr);
+      gap: rem(10);
+      &:not(:last-child) {
+         margin-bottom: rem(15);
+      }
+   }
+   &__name {
+      grid-column-start: 2;
+   }
+   &__date {
+      grid-column-start: 5;
+      justify-self: center;
+   }
+   &__size {
+      grid-column-start: 6;
+      justify-self: center;
+   }
+}
+
+.fileplate {
+   display: flex;
+   flex-wrap: wrap;
+   gap: rem(25);
+}
+
+.file-enter-active {
+   animation: file-enter 500ms forwards;
+}
+
+@keyframes file-enter {
+   0% {
+      opacity: 0;
+      transform: translateY(-50%);
+   }
+   100% {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}

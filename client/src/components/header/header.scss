@@ -1,0 +1,64 @@
+@use "sass:math";
+@import "../../utils/colors.scss";
+@import "../../utils/mixins.scss";
+@import "../../utils/variables.scss";
+
+.header {
+   background: #ffffff;
+   box-shadow: 0px rem(3) rem(4) rgba(92, 92, 92, 0.25);
+   position: relative;
+   &__body {
+      display: flex;
+      align-items: center;
+      min-height: rem(50);
+      padding: rem(5) 0;
+      img {
+         max-width: rem(25);
+         @media (min-width: $mobileSmall) {
+            max-width: rem(40);
+         }
+      }
+   }
+
+   &__header {
+      flex: 1 1 auto;
+      margin-left: rem(15);
+      color: $mainColor;
+      font-weight: 700;
+      font-size: rem(16);
+      margin-right: rem(15);
+      @media (min-width: $mobileSmall) {
+         font-size: rem(20);
+         margin-right: rem(35);
+      }
+      line-height: math.div(23, 20);
+      white-space: nowrap;
+   }
+
+   &__search {
+      margin-right: rem(15);
+   }
+
+   &__list {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      column-gap: rem(10);
+      @media (min-width: $mobile) {
+         column-gap: rem(30);
+      }
+      row-gap: rem(5);
+
+      li {
+         color: $mainColor;
+         font-weight: 700;
+         font-size: rem(18);
+         line-height: math.div(23, 20);
+         @media (min-width: $mobileSmall) {
+            font-size: rem(20);
+         }
+         cursor: pointer;
+      }
+   }
+}

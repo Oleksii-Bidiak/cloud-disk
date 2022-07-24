@@ -1,0 +1,149 @@
+@import "../../utils/colors";
+@import "../../utils/mixins.scss";
+@import "../../utils/variables.scss";
+
+.disk {
+   padding: rem(20) 0px 0px 0px;
+   height: 100%;
+   &__container {
+      height: 100%;
+   }
+   &__body {
+      color: $mainColor;
+      height: 100%;
+   }
+   &__controls {
+      display: flex;
+      align-items: center;
+      gap: rem(15);
+      @media (max-width: $mobile) {
+         flex-wrap: wrap;
+      }
+   }
+   &__create {
+      margin-left: rem(10);
+   }
+
+   &__upload {
+      margin-left: rem(10);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+   }
+
+   &__upload-input {
+      display: none;
+   }
+
+   &__upload-label {
+      border: 2px dashed $mainColor;
+      padding: 5px 10px;
+      cursor: pointer;
+   }
+
+   &__select {
+      margin-left: auto;
+      max-width: rem(150);
+   }
+
+   &__buttons-view {
+      display: flex;
+      align-items: center;
+      gap: rem(15);
+   }
+   &__list,
+   &__plate {
+      height: rem(20);
+      width: rem(20);
+      border: none;
+      outline: none;
+      cursor: pointer;
+      background: no-repeat center center;
+      background-size: contain;
+   }
+   &__list {
+      background-image: url("../../assets/img/list.svg");
+   }
+   &__plate {
+      background-image: url("../../assets/img/plate.svg");
+   }
+}
+
+.drop-area {
+   height: calc(100vh - 50px - 40px);
+   margin: rem(20);
+   border: dashed $mainColor rem(20);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: rem(40);
+}
+
+.popup {
+   width: 100%;
+   height: 100vh;
+   background: rgba(0, 0, 0, 0.5);
+   right: 0;
+   left: 0;
+   top: 0;
+   bottom: 0;
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   &__content {
+      width: rem(400);
+      background: white;
+      padding: rem(20);
+      border-radius: rem(12);
+      display: flex;
+      flex-direction: column;
+   }
+
+   &__create {
+      align-self: flex-end;
+   }
+
+   &__header {
+      display: flex;
+      justify-content: space-between;
+   }
+
+   input {
+      margin: rem(20) 0px;
+   }
+}
+
+.loader {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: calc(100vh - rem(50));
+}
+
+.lds-dual-ring {
+   display: inline-block;
+   width: rem(80);
+   height: rem(80);
+}
+.lds-dual-ring:after {
+   content: " ";
+   display: block;
+   width: rem(64);
+   height: rem(64);
+   margin: rem(8);
+   border-radius: 50%;
+   border: rem(6) solid $mainColor;
+   border-color: $mainColor transparent $mainColor transparent;
+   animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+   0% {
+      transform: rotate(0deg);
+   }
+   100% {
+      transform: rotate(360deg);
+   }
+}

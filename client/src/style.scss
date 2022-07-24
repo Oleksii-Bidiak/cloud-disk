@@ -1,0 +1,114 @@
+@use "sass:math";
+// Підключення шрифта
+//&display=swap - добавить при подключении через плагин
+// @import url("https://fonts.googleapis.com/css?family=Roboto:regular,italic,500,500italic,700,700italic,900,900italic");
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&display=swap");
+// Обнулення стилів браузера
+
+@import "./utils/colors.scss";
+@import "./utils/mixins.scss";
+@import "./utils/variables.scss";
+
+* {
+   padding: 0px;
+   margin: 0px;
+   border: 0px;
+}
+*,
+*:before,
+*:after {
+   box-sizing: border-box;
+}
+:focus,
+:active {
+   outline: none;
+}
+a:focus,
+a:active {
+   outline: none;
+}
+html,
+body {
+   height: 100%;
+   font-family: FiraSans;
+   min-width: 320px;
+}
+body {
+   color: #000;
+   line-height: 1;
+   font-size: 14px;
+   //text-rendering: optimizeLegibility;
+   -ms-text-size-adjust: 100%;
+   -moz-text-size-adjust: 100%;
+   -webkit-text-size-adjust: 100%;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+input,
+button,
+textarea {
+   font-family: FiraSans;
+   font-size: inherit;
+}
+button {
+   cursor: pointer;
+   color: inherit;
+   background-color: inherit;
+}
+a {
+   color: inherit;
+}
+a:link,
+a:visited {
+   text-decoration: none;
+}
+a:hover {
+   text-decoration: none;
+}
+ul li {
+   list-style: none;
+}
+img {
+   vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-weight: inherit;
+   font-size: inherit;
+}
+
+#root {
+   min-height: 100%;
+   display: flex;
+   flex-direction: column;
+   overflow: hidden;
+   .app {
+      flex: 1 1 auto;
+   }
+}
+
+// Запобігання зміни кольору заднього фону для input при автозаповненні в Chrome
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+   -webkit-box-shadow: 0 0 0 30px $bgColor inset !important;
+}
+
+// Стилі для вього додатку
+
+// Загаьний стиль для контейнера
+[class*="__container"] {
+   @if ($maxWidthContainer>0) {
+      max-width: rem($maxWidthContainer);
+      box-sizing: content-box;
+      margin: 0 auto;
+   }
+   @if ($containerPadding>0) {
+      padding: 0 rem(math.div($containerPadding, 2));
+   }
+}
